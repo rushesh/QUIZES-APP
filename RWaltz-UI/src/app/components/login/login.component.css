@@ -76,4 +76,9 @@
       margin-top: 0;
     }
   }
+  .inner-conatiners {
+    border-style: dotted;
+    border-width: thick;
+    padding: 40px;
+  }
   

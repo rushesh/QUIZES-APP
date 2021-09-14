@@ -153,9 +153,9 @@ export class QuizComponent implements OnInit {
   }
   previousQuestion(): any {
     // console.log(this.currentQuestionsNo, this.previousQuestionsNo)
-    this.currentQuestions = this.previousQuestions;
+    
     this.currentQuestionsNo = this.previousQuestionsNo-1;
-
+    this.currentQuestions = this.allQuestions[this.currentQuestionsNo]
     if (this.previousQuestionsNo == 0) {
       this.previousQuestionsNo = 0;
       this.previousQuestions = null;
