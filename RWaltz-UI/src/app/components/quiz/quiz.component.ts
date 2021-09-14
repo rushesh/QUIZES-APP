@@ -192,7 +192,7 @@ export class QuizComponent implements OnInit {
     const falses = this.output.length - +this.result;
     const trues = +this.result;
 
-    const percent = Math.round((trues / (trues + falses)) * 100);
+    const percent = Math.ceil((trues / (trues + falses)) * 100);
     this.result = `You answered  ${trues} correct and ${falses} incorrect and you scored ${percent}%.`;
     console.log(this.result);
     this.backendService.sendLoginUserDetails(trues, falses, percent).subscribe(
