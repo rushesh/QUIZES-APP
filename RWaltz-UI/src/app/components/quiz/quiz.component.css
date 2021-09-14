@@ -1,0 +1,41 @@
+.container-fluid {
+  background: #35dc9b;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.container {
+  background: whitesmoke;
+  padding: 10px;
+  margin: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 0;
+  align-items: center;
+  justify-content: space-around;
+}
+
+input[type="radio"] {
+  padding: 10px;
+  margin: 5px;
+}
+.timer {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 1.4em;
+  letter-spacing: -1px;
+}
+.timer span {
+  font-size: 2em;
+  margin: 0 3px 0 15px;
+}
+.inner-conatiners {
+  border-style: dotted;
+  border-width: thick;
+  padding: 10px;
+  width: 90vw;
+  height: max-content;
+}

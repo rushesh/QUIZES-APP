@@ -1,0 +1,79 @@
+<div class="container-fluid">
+  <div>
+    <button
+      type="button"
+      class="btn btn-danger m-2"
+      (click)="Logout()"
+    >
+      Logout
+    </button>   
+  </div>
+  <div class="inner-conatiners" *ngIf="form">
+    <div class="timer" *ngIf="!showResult">
+      <h4>Time Left</h4>
+      <span id="minutes"> {{ minutesToDday }} </span>Min
+      <span id="seconds"> {{ secondsToDday }} </span>S
+      <hr />
+    </div>
+    <form
+      [formGroup]="form"
+      (ngSubmit)="nextQuestion() && form"
+      *ngIf="currentQuestionsNo < maxQuestions"
+    >
+      <ng-container *ngIf="currentQuestions">
+        <h1 class="text-center m-1">
+         {{currentQuestionsNo+1}}. {{ currentQuestions?.question }}
+        </h1>
+        <br />
+        <div class="container radiooptions">
+          <ng-container *ngFor="let a of currentQuestions?.options">
+            <label>
+              <input type="radio" [value]="a" formControlName="answers" />
+              <span>{{ a.a }}</span>
+            </label>
+          </ng-container>
+        </div>
+      </ng-container>
+      <div class="form-group text-center">
+        <button
+          type="button"
+          [disabled]="previousQuestionsNo <= 0"
+          class="btn btn-warning m-2"
+          (click)="previousQuestion()"
+        >
+          Previous
+        </button>
+        <button
+          type="submit"
+          [disabled]="!form.valid"
+          class="btn btn-primary m-2"
+        >
+          Next
+        </button>
+        <button
+        type="button"
+        [disabled]="previousQuestionsNo <= 0"
+        class="btn btn-danger m-2"
+        (click)="finishQuiz()"
+      >
+        Finish Quiz
+      </button>
+      </div>
+    </form>
+    <ng-container *ngIf="showResult">
+      <h3 class="text-center">
+        {{ result }}
+      </h3>
+      <div class="text-center">
+        <button
+          type="button"
+          [disabled]="previousQuestionsNo <= 0"
+          class="btn btn-danger m-2"
+          (click)="restartQuiz()"
+        >
+          Restart
+        </button>
+      </div>
+    </ng-container>
+  </div>
+</div>
